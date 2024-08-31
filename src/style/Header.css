@@ -1,0 +1,52 @@
+/* src/styles/Header.css */
+
+.chat-header {
+    background-color: #1e2a38;
+    color: #ffffff;
+    padding: 15px 30px; /* 패딩 조정 */
+    display: flex;
+    justify-content: space-between; /* 양 끝 정렬 */
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    height: 70px; /* 고정된 헤더 높이 */
+}
+
+.header-content h2 {
+    margin: 0;
+    font-size: 24px; /* 큰 채널 이름 */
+    font-weight: bold;
+}
+
+.header-actions {
+    display: flex;
+    gap: 15px; /* 버튼 간격 */
+}
+
+.header-actions button {
+    padding: 8px 12px;
+    background-color: #4a90e2;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    font-size: 14px;
+}
+
+.header-actions button:hover {
+    background-color: #357ab9;
+}
+
+@media (max-width: 1024px) {
+    .chat-header {
+        padding: 10px 20px; /* 중간 화면 패딩 */
+    }
+
+    .header-content h2 {
+        font-size: 20px; /* 중간 화면 글꼴 크기 */
+    }
+
+    .header-actions button {
+        padding: 6px 10px; /* 중간 화면 버튼 패딩 */
+    }
+}

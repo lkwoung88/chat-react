@@ -1,0 +1,246 @@
+/* src/styles/Sidebar.css */
+
+.chat-sidebar {
+    width: 250px; /* 사이드바의 고정 너비 설정 */
+    background-color: #2c3e50; /* 사이드바 배경색 */
+    color: #ffffff; /* 텍스트 색상 */
+    display: flex;
+    flex-direction: column; /* 수직 정렬 */
+    padding: 20px; /* 패딩 추가 */
+    border-right: 1px solid #ccc; /* 오른쪽 경계선 추가 */
+    overflow-y: auto; /* 내용이 많을 경우 스크롤 가능 */
+}
+
+.profile-section {
+    display: flex;
+    align-items: center; /* 수직 정렬 */
+    margin-bottom: 20px; /* 아래쪽 여백 */
+}
+
+.avatar {
+    width: 50px; /* 아바타 이미지 너비 */
+    height: 50px; /* 아바타 이미지 높이 */
+    border-radius: 50%; /* 둥근 이미지 */
+    margin-right: 10px; /* 오른쪽 여백 */
+}
+
+.profile-section h3 {
+    margin: 0;
+    font-size: 18px; /* 사용자 이름 글꼴 크기 */
+}
+
+.channel-list h4 {
+    margin-top: 0;
+    margin-bottom: 10px; /* 위쪽 여백 제거, 아래쪽 여백 추가 */
+    font-size: 16px;
+}
+
+.channel-list ul {
+    list-style: none; /* 리스트 스타일 제거 */
+    padding: 0; /* 패딩 제거 */
+    margin: 0; /* 마진 제거 */
+}
+
+.channel-list li {
+    padding: 8px 10px; /* 채널 항목 패딩 */
+    cursor: pointer; /* 포인터 커서 */
+    border-radius: 4px; /* 둥근 모서리 */
+    transition: background-color 0.2s ease-in-out; /* 배경색 전환 효과 */
+}
+
+.channel-list li:hover {
+    background-color: #34495e; /* 호버 시 배경색 변경 */
+}
+
+.channel-list li.active {
+    background-color: #1e2a38; /* 선택된 채널 배경색 */
+}
+
+@media (max-width: 600px) {
+    .chat-sidebar {
+        width: 200px; /* 모바일 환경에서 사이드바 너비 조정 */
+        padding: 10px; /* 패딩 조정 */
+    }
+
+    .avatar {
+        width: 40px; /* 아바타 이미지 크기 조정 */
+        height: 40px;
+    }
+
+    .profile-section h3,
+    .channel-list h4 {
+        font-size: 14px; /* 글꼴 크기 조정 */
+    }
+
+    .channel-list li {
+        padding: 6px 8px; /* 채널 항목 패딩 조정 */
+    }
+}
+
+.add-room {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+/* src/styles/Sidebar.css */
+/* 모달 전체 화면을 덮는 배경 */
+.modal {
+    position: fixed; /* 화면에 고정 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* 배경 어둡게 조정 */
+    display: flex;
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+    z-index: 9999; /* 다른 요소들보다 앞에 오도록 설정 */
+    backdrop-filter: blur(5px); /* 배경 블러 효과 */
+}
+
+/* 모달 내용 */
+.modal-content {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px; /* 둥근 모서리 */
+    width: 350px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25); /* 더 부드러운 그림자 */
+    position: relative;
+    animation: fadeIn 0.3s ease-out; /* 모달 애니메이션 */
+    transform: translateY(-20px); /* 초기 위치 설정 */
+    transition: transform 0.3s ease-out; /* 위치 전환 효과 */
+    display: flex;
+    flex-direction: column; /* 수직 정렬 */
+    align-items: center; /* 수평 중앙 정렬 */
+    color: #333; /* 텍스트 색상 변경 */
+}
+
+/* 모달 애니메이션 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.add-room-input {
+    width: 100%;
+    max-width: 300px; /* 최대 너비 설정 */
+    padding: 10px;
+    margin-top: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px; /* 입력 필드 둥근 모서리 */
+    transition: border-color 0.2s ease-in-out;
+    text-align: center; /* 입력 필드 내 텍스트 중앙 정렬 */
+    color: #333; /* 입력 필드 텍스트 색상 */
+    background-color: #f7f7f7; /* 입력 필드 배경색 */
+}
+
+.add-room-input:focus {
+    border-color: #3498db; /* 포커스 시 테두리 색상 변경 */
+    outline: none;
+    background-color: #fff; /* 포커스 시 배경색 변경 */
+}
+
+.user-dropdown {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    margin-top: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f7f7f7;
+    color: #333;
+    transition: border-color 0.2s ease-in-out;
+}
+
+.selected-users {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* 선택된 유저 리스트 가운데 정렬 */
+}
+
+.selected-user {
+    background-color: #e7e7e7;
+    padding: 8px 12px;
+    margin: 5px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.remove-user-button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    margin-left: 8px;
+    padding: 4px 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.remove-user-button:hover {
+    background-color: #c0392b;
+}
+
+.button-group {
+    display: flex; /* 수평 정렬 */
+    justify-content: center; /* 가운데 정렬 */
+    width: 100%; /* 버튼 그룹의 너비 */
+    margin-top: 20px;
+}
+
+.add-room-confirm-button,
+.add-room-cancel-button {
+    flex: 1; /* 동일한 너비 설정 */
+    margin: 0 5px; /* 버튼 간의 간격 */
+    padding: 10px 16px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px; /* 버튼 둥근 모서리 */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 버튼 그림자 */
+}
+
+.add-room-confirm-button:hover,
+.add-room-cancel-button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px); /* 호버 시 살짝 올라오는 효과 */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25); /* 그림자 확장 */
+}
+
+.add-room-cancel-button {
+    background-color: #e74c3c; /* 취소 버튼 색상 */
+}
+
+.add-room-cancel-button:hover {
+    background-color: #c0392b; /* 호버 시 취소 버튼 색상 */
+}
+
+.add-room-button {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    width: 100%;
+}
+
+.add-room-button:hover {
+    background-color: #2980b9;
+}
